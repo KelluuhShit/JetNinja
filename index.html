@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JetNinja</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="icon" type="x ixon" href="./assets/awiatorAnime.png">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <!-- notifications -->
+    <div class="notif">
+        <span id="nxtRnd" class="nxtRnd">Wait for next round</span>
+        <span id="wnAlrt" class="won">Won KES <span id="wonAmnt"></span></span>
+        <span id="rcgBal" class="bal">Please recharge your account</span>
+    </div>
+
+    <!-- registration -->
+    <div id="reg-form" class="reg-form">
+        <form id="registration-form">
+            <div class="reg-tittle">
+                <div>
+                    <span class="reg-text">Welcome to <span class="jet-ttl">JetNinja</span></span> <br>
+                    <span class="reg-text-two">Create Account</span>
+                </div>
+                <div>
+                    <span id="clos-btn"><i class="fas fa-times-circle"></i></span>
+                </div>
+            </div>
+            <div class="reg-inputs">
+                <label for="user-name" id="user-name-label">User-name:</label>
+                <input id="user-name" class="user-name" type="text">
+                
+                <label for="phone-number" id="phone-number-label">Phone-number:</label>
+                <input id="phone-number" class="phone-number" type="number">
+
+                <label for="user-password" id="user-password-label">Password:</label>
+                <input id="user-password" class="user-password" type="email">
+            </div>
+
+            <div class="terms-box">
+                <input id="check-terms" type="checkbox" required>
+                <label for="check-terms">I Agree to Terms and Conditions</label>
+            </div>
+
+            <div class="sub-btn">
+                <span id="reg-complete-btn" class="reg-complete-btn">Register</span>
+            </div>
+        </form>
+    </div>
+
+    <!-- bonuspage -->
+    <!-- <div id="bonus-sec" class="bonus-sec">
+        <div class="bon-head">
+            <span class="cong-tulate">CONGRATULATIONS!!</span><br>
+            <img class="splash-img" src="./assets/asset/download.png" alt="">
+            <span>You have received</span> <br>
+            <span>KES: <span id="welcome-bonus">100</span> Bonus</span>
+            <span id="claim-bonus" class="claim-bonus">Claim</span>
+        </div>
+    </div> -->
+
+    <!-- depositPage -->
+
+    <div id="paymentEmailCont" class="paymentEmailCont">
+        <div class="payContent">
+            <span>Please Enter Email to continue to Transaction Page.</span> <br>
+            
+        </div>
+        <div class="emailImg">
+            <img src="./assets/asset/emailImg.png" alt="">
+        </div>
+        <div class="emailContent">
+            <!-- <label class="payEmailText" for="paymentEmail">Enter Email:</label> -->
+            <input type="email" id="paymentEmail" placeholder="Enter your email">
+            <input type="number" id="paymentAmount" placeholder="Amount">
+            <span id="amountDepositError">Deposit should not be less than KSH 100</span>
+            <span id="makeTransact" class="makeTransact">Ok</span>
+        </div>
+        <div class="payPage">
+            <span>Powered By:</span>
+            <span class="rights">©JetNinja - Crash</span>
+        </div>
+    </div>
+
+    <!-- withdrawalPage -->
+
+    <div id="withdrawalPage" class="withdrawalPage">
+        <div class="with-con-a">
+            <div id="backBtn" class="backBtn">
+                <i class=" fas fa-solid fa-arrow-left"></i>
+            </div> 
+            <span class="withdrawText">
+                Withdraw to Mpesa
+            </span>
+        </div>
+        <div class="text-img">
+            <span class="jet-text">
+            jetNinja - Crash
+            </span>
+            <img class="jet-img" src="./assets/awiatorAnime.png" alt="">
+        </div>
+        <div id="toast-container"></div>
+        <div class="userCurBal">
+            <!-- <span class="cur-bal">
+                My Balance :  <span  id="userBalWithdraw"></span>
+            </span> -->
+            <input id="withdrawal-amt" type="number" placeholder="Enter Amount to Withdraw">
+            <span id="withdraw-btn">Withdraw</span>
+        </div>
+
+        <div class="userTransactions">
+            <span class="transact-tittle">Recent Transactions</span>
+            <div id="recent-tranactions" class="recent-tranactions">
+                No recent Transactions
+                
+            </div>
+            <ul id="transactionList"></ul>
+        </div>
+    </div>
+
+    <div class="user-acc">
+        <div class="with-draw">
+            <span id="with-icon" class="with-icon"><i class="fas fa-solid fa-bars"></i></span>
+            <span class="usr-bal">Bal: <span class="userBal" id="userBal"></span></span>
+        </div>
+        <div class="reg-user">
+            <span id="deposit-btn" class="deposit-btn">Deposit</span>
+            <span id="reg-btn" class="reg-btn">Register</span>
+            <span id="user-id"></span>
+        </div>
+    </div>
+
+    <div class="lastVals">
+        <span id="last-vals" class="list-item">
+            <ul>
+                <li class="ran-one" id="for-li">11.2</li>
+                <li class="ran-two" id="for-li">3.9</li>
+                <li class="ran-the" id="for-li">1.7</li>
+                <li class="ran-one" id="for-li">25.2</li>
+                <li class="ran-one" id="for-li">6.9</li>
+                <li class="ran-two" id="for-li">4.1</li>
+                <li class="ran-one" id="for-li">9.3</li>
+                <li class="ran-two" id="for-li">3.9</li>
+                <li class="ran-the" id="for-li">1.1</li>
+                <li class="ran-one" id="for-li">61.1</li>
+                <li class="ran-one" id="for-li">5.2</li>
+                <li class="ran-the" id="for-li">1.2</li>
+            </ul>
+        </span>
+    </div>
+
+    <div class='container'>
+        <div class="counter">
+            <div id="counterHeader" class="counterHeader">FLEW AWAY</div>
+            <p class="counterText" id="counter">1.0X</p>
+        </div>
+        <div id="nextRound" class="nextRound">
+            <p class="nextRoundText">WAITING FOR NEXT ROUND</p>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+        </div>
+        <canvas id="wheelCanvas"   height="200"></canvas>
+        <!-- <canvas id="wheelCanvas" width="400" height="400"></canvas> -->
+        <div class="glowContainer">
+            <div id="glowingContainer" class="glowing"></div>
+        </div>
+    </div>
+
+
+    <div class="stk-box">
+        <div class="usr-stk-box">
+            <div class="vars">
+                <div class="var-con">
+                    <span id="remStake"><i class="fas fa-solid fa-minus"></i></span>
+                    <span id="varStake">50</span>
+                    <span id="addStake"><i class="fas fa-solid fa-plus"></i></span>
+                </div>
+            </div>
+            <div class="consts">
+                <div class="consts-ne">
+                    <span id="oneHrd" class="const-stk" >100</span>
+                    <span id="twoHrd" class="const-stk" >200</span>
+                </div>
+                <div class="consts-nd">
+                    <span id="fiveHrd" class="const-stk">500</span>
+                    <span id="thsHsd" class="const-stk" >1000</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="placeBet" class="usr-plc">
+            <div class="stk-inds">
+                <span id="betTxt">BET</span>
+                <span><span id="fnlStake">50</span> KSH</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="usr-tlk">
+        <span class="allBets">ALL BETS ( <span id="ttl-bts"></span> )</span>
+        <span class="chattn"><span>Chats</span><i class="fas fa-solid fa-comment-dots"></i></span>
+    </div>
+
+    <div class="plr-bx">
+        <div class="bx-tp">
+            <span>Players</span>
+            <span>Stake</span>
+            <span>Won</span>
+        </div>
+        <div id="queu" class="queu">Waiting . . .</div>
+        <div id="plr-stk" class="plr-stk">
+            
+        <div id="shuffleContainer">
+                <div class="plrne">
+                <span id="userBetId">Peter13</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Aleko</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Mwas1990</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>MarryJ</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Master254</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Achieng</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Zablon</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>NockKg</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Mattoh88</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Sam</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Dero</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Jon222</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Engneer</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>PalmerKe</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Mnati01</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>OlooJ</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Mosse</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>TheDon</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Kim11</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Gloh</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Allanoh</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>kev254</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Yobra</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>TheKing</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Finesse</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>LeoN123</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Kamanda</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Trapper</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Muli41</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>PesMaster</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Jayden</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Alonzok</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>TipKing</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Mjammoh1</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>AlutaKing</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>BenK</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Kapedo87</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Waziri</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Captain</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Haron</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Kevooh</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>BradKe</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Zozaman</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Kipkorir17</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>LegiTips</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>FamaG</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>Luck637</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+            <div class="plrne">
+                <span>BrayoKe</span>
+                <span id="userStakeId">3000</span>
+                <span id="userCashoutId">-</span>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="warn">
+        <span>Play Responsibly. Not for Persons Under Age of 18</span>
+    </div>
+
+    <audio id="bustSound">
+        <source src="./assets/sounds/bust.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+document.onkeydown = function(e) {
+    if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0)))) {
+        return false;
+    }
+};
+
+    </script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script src="./payment.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/register.js"></script>
+    <script src="./scripts/App.js"></script>
+    <script src="./scripts/service-worker.js"></script>
+</body>
+</html>

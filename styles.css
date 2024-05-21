@@ -1,0 +1,916 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+    background-color: rgb(58, 56, 56);
+}
+.topSection{
+    display: flex;
+    justify-content: space-between;
+    background-color: cadetblue;
+    padding: 20px;
+}
+
+
+
+.container{
+  display:flex;
+  justify-content: center;
+  width: 100%;
+  /* margin-top: 20px; */
+}
+
+canvas {
+    border: 2px solid grey;
+    /* background: url(./assets/aviatorBg.jpg); */
+    border-radius: 20px;
+    background-size: cover;
+    width: 100%;
+    margin: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+
+.counter{
+    position: absolute;
+    margin-top: 5em;
+}
+.counterText {
+    font-size: 50px;
+    font-weight: bold;
+    color: #fff;
+    padding: 20px ;
+    border-radius: 50px;
+    /* background-color: rgba(87, 60, 184, 0.16); 
+    box-shadow: 0 0 20px 10px rgba(87, 60, 184, 0.2); */
+}
+
+
+
+
+.counterHeader{
+    text-align: center;
+    color: #fff;
+    font-size: 25px;
+    display: none;
+}
+
+.stakeContainer{
+    display: flex;
+    justify-content: space-around;
+    margin: 5px;
+    border: solid 2px grey;
+    border-radius: 20px;
+    height: 120px;
+}
+
+.addAmount{
+    display: flex;
+
+}
+
+.constAmtA{
+    display: flex;
+}
+
+#amt100{
+    margin-right: 10px;
+}
+
+.constAmtB{
+    display: flex;
+    color: rgba(216, 35, 65, 0.678);
+}
+
+
+.amountContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    background-color: yellow;
+}
+
+.betButton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.userStake{
+    background-color: black;
+    color: #fff;
+    padding: 5px 25px;
+    border-radius: 10px;
+}
+
+.previousStops{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    
+}
+
+#lastValue{
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(24, 23, 23);
+    color: #fff;
+}
+
+.progress-container {
+    width: 70%;
+    background-color: #5f5b5b;
+    /* border: 1px solid #ccc; */
+    margin: 5px auto;
+    
+    /* margin-top: 8em; */
+    border-radius: 20px;
+    
+  }
+
+  .nextRoundText{
+    text-align: center;
+    color: #fff;
+    font-size: 20PX;
+    font-weight: lighter;
+    margin-top: 10px;
+  }
+
+  .nextRound{
+    margin-top: 8em;
+    border-radius: 20px;
+    position: absolute;
+    width: 100%;
+    display: none;
+  }
+
+  
+  .progress-bar {
+    width: 0%;
+    height: 10px;
+    background-color: rgba(238, 8, 47, 0.993);
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    border-radius: 20px;
+  }
+
+  .glowing {
+    
+    position: absolute;
+    left: 50%; /* Center horizontally */
+    top: 14em; /* Center vertically */
+    transform: translate(-50%, -50%); /* Center the element exactly in the middle */
+    /* border-radius: 100px; */
+    z-index: -1;
+    box-shadow: 0 0 40px 80px rgba(87, 60, 184, 1);
+    background-color: rgba(87, 60, 184, 1);
+    transition: 0.5s ease-out;
+    overflow: hidden;
+    display: none;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
+
+.stk-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 140px;
+    border: solid grey;
+    background-color: rgb(58, 56, 56);
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.usr-stk-box{
+    /* background-color: rgb(19, 185, 19); */
+    height: 130px;
+    width: 100%;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.usr-plc{
+    background-color:rgb(19, 185, 19);
+    height: 130px;
+    width: 100%;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.vars{
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
+}
+
+.var-con{
+    display: flex;
+    justify-content: space-around;
+    background-color:  black;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 5px;
+    font-size: 20px;
+}
+
+.consts{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.consts-ne, .consts-nd{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    color: #fff;
+}
+
+.const-stk{
+    background-color: #ccc;
+    padding: 5px 20px;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    margin: 5px;
+    color: black;
+    border-radius: 20px;
+}
+
+.stk-inds{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 25px;
+    height: 100%;
+    color: #fff;
+}
+
+.usr-tlk{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.fa-comment-dots{
+    font-size: 25px;
+    color: #fff;
+}
+
+.chattn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color: #fff;
+    border: solid #ccc 2px;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+.chattn:hover{
+    background-color: grey;
+}
+
+.allBets{
+    margin-left: 10px;
+    color: #fff;
+    border: solid #ccc 2px;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+.plr-bx{
+    margin: 5px;
+    background-color: rgba(24, 23, 23, 0.795) ;
+    height: 300px;
+    padding: 5px;
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+.plr-bx::-webkit-scrollbar{
+    display: none;
+}
+
+.bx-tp{
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+    background-color: rgb(24, 23, 23);
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px ;
+    border-radius: 5px;
+}
+
+
+.plr-stk{
+    margin-top: 40px;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.plrne{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: solid 1px grey;
+    padding: 5px;
+    border-radius: 5px;
+    color: grey;
+    background-color: rgba(24, 23, 23, 0.795);
+    display: none;
+}
+
+.warn{
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    margin: 20px;
+}
+
+.notif{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: #fff;
+    margin-top: 2em;
+}
+
+.nxtRnd{
+    background-color: rgba(238, 8, 47, 0.993);
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: solid grey 2px;
+    display: none;
+}
+
+.won{
+    background-color: rgb(19, 185, 19);
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: solid grey 2px;
+    display: none;
+}
+
+.bal{
+    background-color: rgba(238, 8, 47, 0.993);
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: solid grey 2px;
+    display: none;
+}
+
+#wonAmnt{
+    font-weight: bold;
+}
+
+.queu{
+    text-align: center;
+    position: absolute;
+    left: 10em;
+    margin-top: 10em;
+    color: #fff;
+    display: none;
+}
+
+.user-acc{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(24, 23, 23, 0.795);
+    padding: 10px;
+}
+
+.with-draw{
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.with-icon{
+    width: 25px;
+    height: 25px;
+    border: solid #ccc 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.reg-user{
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+#user-id{
+    border: solid #ccc 2px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #5f5b5b;
+    display: none;
+}
+.deposit-btn{
+    background-color:rgb(19, 185, 19) ;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: none;
+}
+
+.reg-btn{
+    border: solid #ccc 2px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.lastVals{
+    display: flex;
+    flex-direction: row;
+    scroll-snap-type: x mandatory;
+    margin-top: 5px;
+}
+
+.list-item {
+    font-weight: bold;
+    display: flex;
+    flex-direction: row-reverse;
+    list-style: none;
+    flex-wrap: nowrap;
+    padding: 1px 10px;
+    border-radius: 10px;
+    gap: 5px;
+    overflow-x: auto;
+    margin-left: 5px;
+    scroll-snap-align: start;
+}
+.list-item::-webkit-scrollbar{
+    display: none;
+}
+
+li{
+    
+    padding: 1px 10px;
+    border-radius: 10px;
+    background-color: rgba(24, 23, 23, 0.795);
+    list-style: none;
+}
+
+
+ul{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.ran-one{
+    color: rgba(0, 255, 0, 1);
+}
+
+.ran-two{
+    color:rgba(87, 60, 184, 1) ;
+}
+
+.ran-the{
+    color:rgba(255, 0, 0, 1) ;
+}
+
+.reg-tittle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+
+
+.jet-ttl{
+    color: rgba(255, 0, 0, 1);
+}
+
+
+.reg-form{
+    background-color: #ccc;
+    margin: 10px;
+    border-radius: 2px;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    top: 15em;
+    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reg-inputs{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+/* .reg-tittle{
+    background-color: #18171710;
+    padding: 10px 40px;
+} */
+
+.user-name, .phone-number, .user-password{
+    padding: 5px 0px;
+    font-size: 20px;
+    border: solid rgba(24, 23, 23, 0.233) 1px;
+    border-radius: 5px;
+    background-color: #e2dfdf;
+    padding: 10px;
+}
+
+input:focus {
+    outline: 2px solid rgba(0, 255, 0, 0.7);
+}
+
+.terms-box{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#check-terms{
+    border-radius: 20px;
+    color: green;
+}
+
+#check-terms:focus{
+    outline: none;
+}
+
+.terms-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    display: none; /* Hide the default checkbox */
+}
+
+input[type="checkbox"] + label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000;
+    background-color: transparent;
+    border-radius: 4px; /* Optional: to make it rounded */
+    border-radius: 20px;
+}
+
+input[type="checkbox"]:checked + label::before {
+    background-color: rgba(7, 212, 7, 0.801);
+    border: 2px solid rgba(24, 23, 23, 0.233);
+}
+
+
+.sub-btn{
+    text-align: center;
+    margin: 30px;
+}
+
+.reg-complete-btn{
+    background-color:rgba(0, 255, 0, 1) ;
+    padding: 10px 100px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.bonus-sec{
+    background-color: #ccc;
+    margin: 10px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    top: 15em;
+    padding: 10px;
+    display: none;
+}
+
+.bon-head{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.splash-img{
+    width: 100px;
+}
+
+.cong-tulate{
+    color: rgb(4, 94, 4);
+}
+
+.claim-bonus{
+    background-color: orange;
+    color: #fff;
+    padding: 10px 50px;
+    border-radius: 5px;
+    margin: 15px;
+}
+
+.paymentEmailCont{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    background-color: #ccc;
+    height: 100vh;
+    /* margin: 10px; */
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 10000;
+    display: none;
+    text-align: center;
+    gap: 50px;
+  }
+  .payContent{
+
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .emailContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #paymentEmail, #paymentAmount{
+    height: 50px;
+    background-color: #ffffff83;
+    border: none;
+    width: 250px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 10px;
+  }
+
+  .payEmailText{
+    font-size: 20px;
+  }
+
+  .payPage{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* margin-top: 12em; */
+  }
+
+  .makeTransact{
+    background: #fff;
+    padding: 10px 110px;
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: rgba(0, 255, 0, 1);
+    text-shadow: none;
+
+  }
+
+  .withdrawalPage{
+    position: absolute;
+    height: 100vh;
+    z-index: 1000;
+    background-color: #ccc;
+    left: 0;
+    right: 0;
+    display: none;
+  }
+
+.with-con-a{
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    gap: 4em;
+}
+
+.backBtn{
+    height: 40px;
+    width: 40px;
+    background-color: #5f5b5b4b;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border: solid 2px rgba(0, 0, 0, 0.445);
+}
+
+.withdrawText{
+    font-size: 20px;
+}
+
+
+.text-img{
+    display: flex;
+    flex-direction: column;
+    justify-content: centre;
+    align-items: center;
+    margin-top: 2em;
+}
+
+.jet-text{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.jet-img{
+    width: 300px;
+}
+
+.userCurBal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cur-bal{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#withdrawal-amt{
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    width: 70%;
+    text-align: center;
+}
+
+#withdraw-btn{
+    background-color: rgba(0, 255, 0, 1);
+    padding: 10px 50px;
+}
+
+
+.jet-img {
+    /* Set the initial position */
+    position: relative;
+    /* Define the animation */
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    /* Define the scale transformation for the pulse effect */
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+
+.userTransactions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+    background-color: #fff;
+    height: 300px;
+    margin: 10px;
+    border-radius: 5px;
+    border: solid 2px rgba(15, 17, 15, 0.377);
+    overflow-y: auto;
+}
+
+.userTransactions::-webkit-scrollbar{
+    display: none;
+}
+.transact-tittle{
+    font-weight: bold;
+    margin: 10px;
+}
+.recent-tranactions{
+    display: block;
+    border: solid 2px;
+    margin: 10px;
+    padding: 5px;
+    border-radius:5px ;
+    background: #ccc;
+}
+
+#transactionList {
+    display: flex; /* Make it a flex container */
+    flex-direction: column; /* Arrange list items vertically */
+    border-radius: 1px; /* Apply border radius */
+    background-color: #ccc; /* Set background color */
+    /* Add padding to the list */
+    list-style-type: none; /* Remove bullet points */
+    margin: 5px;
+}
+
+#transactionList li {
+    margin-bottom: 5px; /* Add margin between list items */
+    padding: 5px; /* Add padding to list items */
+    background-color: #cccccc00; /* Set background color for list items */
+    border-radius: 3px; /* Apply border radius to list items */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow to list items */
+    color: rgb(4, 94, 4); ;
+}
+
+
+#toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(20px);
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
