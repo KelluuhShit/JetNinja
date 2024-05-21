@@ -7,6 +7,38 @@ body{
     font-family: 'Inter', sans-serif;
     background-color: rgb(58, 56, 56);
 }
+
+/* Media query for large screens */
+@media (min-width: 1024px) {
+    .app-sec-tion {
+        display: flex;
+        flex-direction: row;
+    }
+    .prog-bar-con{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        left: 20em;
+        position: absolute;
+    }
+    .top-sec-tion{
+        width: 300px;
+    }
+}
+
+/* Example styles for the child elements */
+.top-sec-tion, .btm-sec-tion {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Additional styles to ensure better layout on large screens */
+@media (min-width: 1024px) {
+    
+}
+
 .topSection{
     display: flex;
     justify-content: space-between;
@@ -167,11 +199,16 @@ canvas {
     border-radius: 20px;
   }
 
+  .glowContainer{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 14em;
+  }
+
   .glowing {
     
-    position: absolute;
-    left: 50%; /* Center horizontally */
-    top: 14em; /* Center vertically */
     transform: translate(-50%, -50%); /* Center the element exactly in the middle */
     /* border-radius: 100px; */
     z-index: -1;
@@ -317,10 +354,12 @@ canvas {
     display: none;
 }
 
+.bx-tp-con{
+    display: flex;
+}
+
 .bx-tp{
-    position: absolute;
-    left: 0;
-    right: 0;
+    
     display: flex;
     justify-content: space-around;
     color: #fff;
@@ -329,6 +368,7 @@ canvas {
     margin-right: 10px;
     padding: 5px ;
     border-radius: 5px;
+    width: 100%;
 }
 
 
